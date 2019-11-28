@@ -14,7 +14,7 @@ const selectors = {
   state: getRequestState,
 };
 
-export const withGraphCMS = createDecorator({
+export const withGraphQL = createDecorator({
   ...selectors,
 })(DecoratorUI, { isGlobal: false });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Input from './Input';
 
 const SearchInputs = ({ search, onChange }) => {
+  if (!search) return null;
   const searchVars = Object.keys(search);
   const updateVar = key => value => {
     onChange({

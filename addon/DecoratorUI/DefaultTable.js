@@ -75,9 +75,9 @@ const DefaultTable = ({ columns, rows, isLoading }) => {
         <Table stickyHeader>
           <TableHead>
             <TableRow>
-              {columns.map(column => (
+              {columns.map((column, ind) => (
                 <StyledTableCell
-                  key={column.id}
+                  key={`${column.id}-${ind}`}
                   align={column.align}
                   style={{ minWidth: column.minWidth }}
                 >
@@ -89,9 +89,9 @@ const DefaultTable = ({ columns, rows, isLoading }) => {
 
           {!isLoading && (
             <TableBody>
-              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
-                <StyledTableRow hover role="checkbox" tabIndex={-1} key={row.id}>
-                  {row.columns.map(column => (
+              {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map((row, ind) => (
+                <StyledTableRow hover role="checkbox" tabIndex={-1} key={`${row.id}-${ind}`}>
+                  {row.columns.map((column, ind) => (
                     // const value = row[column.id];
                     // const action = column.action ? createEntryLink(value) : null;
                     // const formatedValue = column.format && typeof value === 'number' ? column.format(value) : value
@@ -100,7 +100,7 @@ const DefaultTable = ({ columns, rows, isLoading }) => {
                     // if (Array.isArray(output)) {
                     //   formatedOutput = `[${output.length}]`
                     // }
-                    <StyledTableCell key={column.id} align={column.align}>
+                    <StyledTableCell key={`${column.id}-${ind}`} align={column.align}>
                       {column.render ? column.render() : column.getValue()}
                     </StyledTableCell>
                   ))}

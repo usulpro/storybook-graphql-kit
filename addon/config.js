@@ -1,6 +1,6 @@
 import { setConfig } from '@storybook/addon-devkit';
 
 setConfig({
-  addId: 'graph-cms',
-  panelTitle: 'GraphCMS',
+  addId: 'graphql-kit',
+  panelTitle: 'GraphQL',
 });

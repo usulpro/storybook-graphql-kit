@@ -9,6 +9,7 @@ const createClient = ({ endpoint, token }) =>
 
 export const request = async ({ endpoint, token, query, vars }) => {
   const client = createClient({ endpoint, token });
+  console.log("TCL: request -> endpoint, token", endpoint, token)
   const data = await client.request(query, vars);
   return data;
 };
